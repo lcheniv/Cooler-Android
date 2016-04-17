@@ -13,17 +13,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.firebase.client.Firebase;
-
 public class ChooseActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
-
-        Firebase.setAndroidContext(this);
-        Firebase ref = new Firebase("https://coke-cooler.firebaseio.com/coolers");
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
@@ -32,15 +27,14 @@ public class ChooseActivity extends AppCompatActivity  {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 new AlertDialog.Builder(ChooseActivity.this)
-                        .setTitle("Delete entry")
                         .setMessage("Are we running low?")
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // continue with delete
                                 startSelfie();
                             }
                         })
-                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // do nothing
                                 startSelfie();
