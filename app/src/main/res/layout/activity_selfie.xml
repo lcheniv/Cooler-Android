@@ -31,21 +31,23 @@
             android:src="@drawable/twitter"
             android:background="@null"
             android:layout_gravity="right"
-            android:layout_marginLeft="75dp" />
+            android:layout_marginLeft="55dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/instagram"
             android:src="@drawable/instagram"
-            android:background="@null" />
+            android:background="@null"
+            android:layout_marginLeft="30dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/facebook"
             android:src="@drawable/facebook"
-            android:background="@null" />
+            android:background="@null"
+            android:layout_marginLeft="30dp" />
     </LinearLayout>
 
 </LinearLayout>
