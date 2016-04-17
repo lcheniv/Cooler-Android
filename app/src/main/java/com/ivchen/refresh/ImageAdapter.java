@@ -30,18 +30,21 @@ public class ImageAdapter extends BaseAdapter{
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolderItem vh;
-        if (convertView == null) {
-            // if it's not recycled, initialize some attributes
-            convertView = ((Activity) mContext).getLayoutInflater().inflate(R.layout.grid_item_view, parent, false);
-            vh = new ViewHolderItem();
-            vh.imageView = (ImageView) convertView.findViewById(R.id.image);
-            vh.root = convertView.findViewById(R.id.root);
-
-            vh.imageView.setImageResource(mThumbIds[position]);
-            vh.root.setBackgroundColor(Color.parseColor(colors[random(0,colors.length - 1)]));
-            convertView.setTag(vh);
-        }
+        convertView = ((Activity) mContext).getLayoutInflater().inflate(R.layout.grid_item_view, parent, false);
+        ((ImageView) convertView.findViewById(R.id.image)).setImageResource(mThumbIds[position]);
+        convertView.findViewById(R.id.root).setBackgroundColor(Color.parseColor(colors[random(0,colors.length - 1)]));
+//        ViewHolderItem vh;
+//        if (convertView == null) {
+//            // if it's not recycled, initialize some attributes
+//            convertView = ((Activity) mContext).getLayoutInflater().inflate(R.layout.grid_item_view, parent, false);
+//            vh = new ViewHolderItem();
+//            vh.imageView = (ImageView) convertView.findViewById(R.id.image);
+//            vh.root = convertView.findViewById(R.id.root);
+//
+//            vh.imageView.setImageResource(mThumbIds[position]);
+//            vh.
+//            convertView.setTag(vh);
+//        }
 
         return convertView;
     }
