@@ -1,5 +1,6 @@
 package com.ivchen.refresh;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,4 +16,9 @@ public class FaqActivity extends AppCompatActivity {
         setContentView(R.layout.activity_faq);
     }
 
+    public void onClickFaq(View view) {
+        Intent intent = new Intent(FaqActivity.this, ChooseActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 }

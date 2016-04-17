@@ -25,9 +25,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginBottom="100dp"
-        tools:targetApi="ice_cream_sandwich"
-        android:id="@+id/gridview"></GridLayout>
+        android:layout_marginBottom="100dp"></GridLayout>
 
 
 </RelativeLayout>
