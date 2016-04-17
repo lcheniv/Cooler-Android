@@ -6,7 +6,15 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ivchen.refresh.ChooseActivity"
-    tools:showIn="@layout/activity_choose"
     android:background="@drawable/main_page">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FAQ"
+        android:id="@+id/faqButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="65dp"
+        android:onClick="onClickFaq"/>
 </RelativeLayout>

@@ -21,7 +21,16 @@
         <activity
             android:name=".ChooseActivity"
             android:label="@string/title_activity_choose"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FaqActivity"
+            android:label="@string/title_activity_faq"
+            android:parentActivityName=".ChooseActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ivchen.refresh.ChooseActivity" />
+        </activity>
     </application>
 
 </manifest>

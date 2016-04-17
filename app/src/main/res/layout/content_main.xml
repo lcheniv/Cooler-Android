@@ -18,4 +18,5 @@
         android:src="@drawable/pick_a_drink"
         android:background="@null"
         android:onClick="onClickGoMain"/>
+
 </RelativeLayout>
