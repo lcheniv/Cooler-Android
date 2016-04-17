@@ -1,36 +1,19 @@
 package com.ivchen.refresh;
 
 import android.Manifest;
-import android.annotation.TargetApi;
-import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
 
 public class ChooseActivity extends AppCompatActivity  {
 
@@ -48,10 +31,43 @@ public class ChooseActivity extends AppCompatActivity  {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(getApplicationContext() ,"Thanks for the inventory update!", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(ChooseActivity.this)
+                        .setTitle("Delete entry")
+                        .setMessage("Are we running low?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // continue with delete
+                                startSelfie();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                                startSelfie();
+                            }
+                        })
+                        .show();
             }
         });
 
+    }
+
+    private void startSelfie() {
+        if (hasAllPermissions()) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 50);
+        }else{
+            Intent intent = new Intent(this, SelfieActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    private boolean hasAllPermissions() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED;
+    }
+
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        Intent intent = new Intent(this, SelfieActivity.class);
+        startActivity(intent);
     }
 
     public void onClickGoToFaq(View view) {
