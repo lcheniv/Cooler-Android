@@ -54,14 +54,14 @@ public class ImageAdapter extends BaseAdapter{
     // references to our images
     public static Integer[] mThumbIds = {
             R.drawable.coke_bottle, R.drawable.dasani,
-            R.drawable.fanta, R.drawable.minute_maid,
-            R.drawable.powerade, R.drawable.rootbeer,
+            R.drawable.fanta, R.drawable.lemonade,
+            R.drawable.minute_maid, R.drawable.nos,
             R.drawable.smartwater, R.drawable.sprite,
-            R.drawable.vitamin_water
+            R.drawable.tea, R.drawable.vitamin_water
     };
 
     public static String[] thumbNames = {
-      "Coke", "Desani Water", "Fanta", "Minute Maid Orange Juice", "Powerade", "Root Beer", "Smart Water", "Sprite", "Vitamin Water"
+      "Coke", "Desani Water", "Fanta Orange", "Minute Maid Lemonade" ,"Minute Maid Orange Juice", "Nos", "Smart Water", "Sprite", "Tea", "Vitamin Water"
     };
 
     // http://www.materialui.co/colors
