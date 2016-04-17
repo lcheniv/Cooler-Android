@@ -47,24 +47,8 @@ public class ChooseActivity extends AppCompatActivity implements LocationListene
         }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
 
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        assert gridview != null;
-        gridview.setAdapter(new ImageAdapter(this));
-
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(ChooseActivity.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
-    public void onClickFaq(View view) {
-        Intent intent = new Intent(ChooseActivity.this, FaqActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
 
     @Override
     public void onLocationChanged(Location location) {
@@ -84,5 +68,11 @@ public class ChooseActivity extends AppCompatActivity implements LocationListene
     @Override
     public void onProviderDisabled(String provider) {
         Log.d("Latitude", "disable");
+    }
+
+    public void onClickGoToFaq(View view) {
+        Intent intent = new Intent(ChooseActivity.this, FaqActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

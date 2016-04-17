@@ -16,7 +16,7 @@ public class FaqActivity extends AppCompatActivity {
         setContentView(R.layout.activity_faq);
     }
 
-    public void onClickFaq(View view) {
+    public void onClickGoBack(View view) {
         Intent intent = new Intent(FaqActivity.this, ChooseActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

@@ -3,7 +3,7 @@
     package="com.ivchen.refresh">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -29,11 +29,7 @@
         <activity
             android:name=".FaqActivity"
             android:label="@string/title_activity_faq"
-            android:parentActivityName=".ChooseActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ivchen.refresh.ChooseActivity" />
         </activity>
     </application>
 
