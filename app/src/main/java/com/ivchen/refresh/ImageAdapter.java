@@ -52,20 +52,24 @@ public class ImageAdapter extends BaseAdapter{
     }
 
     // references to our images
-    private Integer[] mThumbIds = {
+    public static Integer[] mThumbIds = {
             R.drawable.coke_bottle, R.drawable.dasani,
             R.drawable.fanta, R.drawable.minute_maid,
             R.drawable.powerade, R.drawable.rootbeer,
             R.drawable.smartwater, R.drawable.sprite,
-            R.drawable.vitaminwater
+            R.drawable.vitamin_water
+    };
+
+    public static String[] thumbNames = {
+      "Coke", "Desani Water", "Fanta", "Minute Maid Orange Juice", "Powerade", "Root Beer", "Smart Water", "Sprite", "Vitamin Water"
     };
 
     // http://www.materialui.co/colors
-    private String[] colors = {
+    public static String[] colors = {
         "#f44336","#E91E63","#9C27B0","#673AB7","#3F51B5","#2196F3","#00BCD4","#8BC34A","#FFC107","#FF5722","#607D8B","#03A9F4","#66BB6A","#FFE082","#8D6E63","#ff8a80"
     };
 
-    private int random(int min, int max)
+    public static int random(int min, int max)
     {
         int range = (max - min) + 1;
         return (int)(Math.random() * range) + min;

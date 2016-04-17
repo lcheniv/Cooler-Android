@@ -4,9 +4,9 @@
     android:layout_height="match_parent" android:id="@+id/root"
     android:gravity="center"
     android:paddingStart="40dp"
-    android:paddingEnd="40dp"
-    android:paddingTop="120dp"
-    android:paddingBottom="120dp">
+    android:paddingEnd="30dp"
+    android:paddingTop="30dp"
+    android:paddingBottom="40dp">
 
     <ImageView
         android:id="@+id/image"

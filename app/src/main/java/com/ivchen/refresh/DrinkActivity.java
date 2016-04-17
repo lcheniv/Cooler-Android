@@ -25,8 +25,9 @@ public class DrinkActivity extends AppCompatActivity {
         setContentView(R.layout.activity_drink);
 
         int id = getIntent().getExtras().getInt("id");
-        Drink d = new Drink("Coke", R.drawable.coke_bottle);
-        int color = Color.parseColor("#f44336");
+
+        Drink d = new Drink(ImageAdapter.thumbNames[id], ImageAdapter.mThumbIds[id]);
+        int color = Color.parseColor(ImageAdapter.colors[ImageAdapter.random(0, ImageAdapter.colors.length - 1)]);
 
         float[] hsv = new float[3];
         Color.colorToHSV(color, hsv);
