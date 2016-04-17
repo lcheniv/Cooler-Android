@@ -25,9 +25,13 @@ public class SelfieActivity extends AppCompatActivity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        ImageView imageView = ((ImageView) findViewById(R.id.selfie));
-        Bundle extras = data.getExtras();
-        Bitmap imageBitmap = (Bitmap) extras.get("data");
-        imageView.setImageBitmap(imageBitmap);
+        if(resultCode != 0 ){
+            ImageView imageView = ((ImageView) findViewById(R.id.selfie));
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageView.setImageBitmap(imageBitmap);
+        }else{
+            startActivity(new Intent(SelfieActivity.this, ChooseActivity.class));
+        }
     }
 }

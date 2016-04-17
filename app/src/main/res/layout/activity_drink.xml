@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:textSize="17sp"
+        android:padding="10dp"
+        tools:text="somethingf"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="end"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="16dp"
+                android:layout_marginTop="3dp"
+                android:text="Are we running low?"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Switch
+                android:id="@+id/running_low"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="9dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ccc" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="end"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="16dp"
+                android:layout_marginTop="3dp"
+                android:text="Take a selfie to win a free coke?"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Switch
+                android:id="@+id/selfie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

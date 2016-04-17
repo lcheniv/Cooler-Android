@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.firebase.client.Firebase;
-import com.firebase.client.Logger;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Firebase.setAndroidContext(MainActivity.this);
-        Firebase.getDefaultConfig().setLogLevel(Logger.Level.DEBUG);
         findLocation();
     }
 
@@ -94,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void registerLocation(Location location) {
-        Firebase ref = new Firebase("https://coke-cooler.firebaseio.com/coolers/12345");
+        Firebase ref = new Firebase("https://coke_bottle-cooler.firebaseio.com/coolers/12345");
         Firebase loc = ref.child("location");
         loc.child("latitude").setValue(location.getLatitude());
         loc.child("longitude").setValue(location.getLongitude());

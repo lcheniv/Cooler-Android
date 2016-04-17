@@ -26,21 +26,9 @@ public class ChooseActivity extends AppCompatActivity  {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                new AlertDialog.Builder(ChooseActivity.this)
-                        .setMessage("Are we running low?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // continue with delete
-                                startSelfie();
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // do nothing
-                                startSelfie();
-                            }
-                        })
-                        .show();
+                Intent intent = new Intent(ChooseActivity.this, DrinkActivity.class);
+                intent.putExtra("id", position);
+                startActivity(intent);
             }
         });
 
@@ -51,7 +39,7 @@ public class ChooseActivity extends AppCompatActivity  {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 50);
         }else{
             new AlertDialog.Builder(ChooseActivity.this)
-                    .setMessage("Thanks! Would you like to enter in a chance to win a free coke?")
+                    .setMessage("Thanks! Would you like to enter in a chance to win a free coke_bottle?")
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent(ChooseActivity.this, SelfieActivity.class);

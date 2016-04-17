@@ -27,14 +27,14 @@
         </activity>
         <activity
             android:name=".ChooseActivity"
-            android:label="@string/title_activity_choose"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/title_activity_choose"/>
         <activity
             android:name=".FaqActivity"
             android:label="@string/title_activity_faq"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".SelfieActivity"/>
+        <activity android:name=".SelfieActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".DrinkActivity" android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -53,7 +53,7 @@ public class ImageAdapter extends BaseAdapter{
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.coke, R.drawable.dasani,
+            R.drawable.coke_bottle, R.drawable.dasani,
             R.drawable.fanta, R.drawable.minute_maid,
             R.drawable.powerade, R.drawable.rootbeer,
             R.drawable.smartwater, R.drawable.sprite,
