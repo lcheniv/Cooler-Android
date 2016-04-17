@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 50);
             return;
         }
+
         Location l = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         if(l != null){
           registerLocation(l);

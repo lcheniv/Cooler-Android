@@ -50,8 +50,22 @@ public class ChooseActivity extends AppCompatActivity  {
         if (hasAllPermissions()) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 50);
         }else{
-            Intent intent = new Intent(this, SelfieActivity.class);
-            startActivity(intent);
+            new AlertDialog.Builder(ChooseActivity.this)
+                    .setMessage("Thanks! Would you like to enter in a chance to win a free coke?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(ChooseActivity.this, SelfieActivity.class);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                            Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                    })
+                    .show();
         }
     }
 
