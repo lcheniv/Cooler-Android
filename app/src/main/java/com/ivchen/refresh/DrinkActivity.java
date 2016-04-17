@@ -17,16 +17,21 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.firebase.client.Firebase;
+
 public class DrinkActivity extends AppCompatActivity {
+
+    boolean runningLow = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink);
+        Firebase.setAndroidContext(DrinkActivity.this);
 
         int id = getIntent().getExtras().getInt("id");
 
-        Drink d = new Drink(ImageAdapter.thumbNames[id], ImageAdapter.mThumbIds[id]);
+        final Drink d = new Drink(ImageAdapter.thumbNames[id], ImageAdapter.mThumbIds[id]);
         int color = Color.parseColor(ImageAdapter.colors[ImageAdapter.random(0, ImageAdapter.colors.length - 1)]);
 
         float[] hsv = new float[3];
@@ -38,7 +43,7 @@ public class DrinkActivity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.image)).setImageResource(d.getDrawableId());
         findViewById(R.id.image).setBackgroundColor(color);
         ((TextView) findViewById(R.id.name)).setText(d.getName());
-        ((TextView) findViewById(R.id.name)).setBackgroundColor(colorDarker);
+        findViewById(R.id.name).setBackgroundColor(colorDarker);
 
         Window window = getWindow();
 
@@ -53,11 +58,14 @@ public class DrinkActivity extends AppCompatActivity {
             window.setStatusBarColor(color);
         }
 
+        final Firebase ref = new Firebase("https://coke-cooler.firebaseio.com/coolers/12345/drinks");
         assert (findViewById(R.id.running_low)) != null;
         findViewById(R.id.running_low).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Snackbar.make(findViewById(R.id.root), "Thanks for letting us know!", Snackbar.LENGTH_LONG).show();
+                runningLow = !runningLow;
+                ref.child(d.getName()).setValue(runningLow);
             }
         });
 

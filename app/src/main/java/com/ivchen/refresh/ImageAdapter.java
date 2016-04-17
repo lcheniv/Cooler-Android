@@ -25,30 +25,28 @@ public class ImageAdapter extends BaseAdapter{
     }
 
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v;
-        ImageView imageView;
-        if (convertView == null) {
-            // if it's not recycled, initialize some attributes
-            v = ((Activity) mContext).getLayoutInflater().inflate(R.layout.grid_item_view, parent, false);
-            ((ImageView) v.findViewById(R.id.image)).setImageResource(mThumbIds[position]);
-            v.findViewById(R.id.root).setBackgroundColor(Color.parseColor(colors[random(0,colors.length - 1)]));
-//            imageView = new ImageView(mContext);
-//            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
-//            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//            imageView.setPadding(8, 8, 8, 8);
-        } else {
-//            imageView = (ImageView) convertView;
-            v = convertView;
-        }
+        convertView = ((Activity) mContext).getLayoutInflater().inflate(R.layout.grid_item_view, parent, false);
+        ((ImageView) convertView.findViewById(R.id.image)).setImageResource(mThumbIds[position]);
+        convertView.findViewById(R.id.root).setBackgroundColor(Color.parseColor(colors[random(0,colors.length - 1)]));
+//        ViewHolderItem vh;
+//        if (convertView == null) {
+//            // if it's not recycled, initialize some attributes
+//            convertView = ((Activity) mContext).getLayoutInflater().inflate(R.layout.grid_item_view, parent, false);
+//            vh = new ViewHolderItem();
+//            vh.imageView = (ImageView) convertView.findViewById(R.id.image);
+//            vh.root = convertView.findViewById(R.id.root);
+//
+//            vh.imageView.setImageResource(mThumbIds[position]);
+//            vh.
+//            convertView.setTag(vh);
+//        }
 
-//        imageView.setImageResource(mThumbIds[position]);
-//        return imageView;
-        return v;
+        return convertView;
     }
 
     // references to our images
@@ -73,6 +71,11 @@ public class ImageAdapter extends BaseAdapter{
     {
         int range = (max - min) + 1;
         return (int)(Math.random() * range) + min;
+    }
+
+    private class ViewHolderItem{
+        public ImageView imageView;
+        public View root;
     }
 
 }
