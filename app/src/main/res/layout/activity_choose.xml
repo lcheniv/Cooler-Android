@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.ivchen.refresh.ChooseActivity">
+    tools:context="com.ivchen.refresh.ChooseActivity"
+    android:background="@drawable/main_page">
 
     <GridView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/gridview"
@@ -16,5 +17,9 @@
         android:verticalSpacing="0dp"
         android:horizontalSpacing="0dp"
         android:stretchMode="columnWidth"
-        android:gravity="center" />
+        android:gravity="center"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="95dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="22dp" />
 </RelativeLayout>
